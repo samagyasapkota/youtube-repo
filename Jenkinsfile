@@ -5,6 +5,7 @@ pipeline {
         DOCKER_IMAGE = "samagyasapkota/youtube-app"
         DOCKER_TAG = "${BUILD_NUMBER}"
         REGISTRY_CREDENTIALS = 'dockerhub-credentials'
+        CI = 'false'
     }
 
     tools {
@@ -31,7 +32,7 @@ pipeline {
         stage('Build Application') {
             steps {
                 echo 'Building application...'
-                sh 'npm run build'
+                sh 'CI=false npm run build'
             }
         }
 
