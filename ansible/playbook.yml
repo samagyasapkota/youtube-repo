@@ -1,0 +1,50 @@
+---
+- name: Setup Jenkins Server
+  hosts: jenkins
+  become: yes
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+- name: Setup K8s Node
+  hosts: k8s
+  become: yes
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - apt-transport-https
+          - curl
+          - ca-certificates
+        state: present
+
+- name: Setup Monitoring
+  hosts: monitoring
+  become: yes
+  tasks:
+    - name: Update apt packages
+      apt:
+        update_cache: yes
+
+    - name: Install required packages
+      apt:
+        name:
+          - wget
+          - curl
+        state: present

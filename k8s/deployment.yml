@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: youtube-app
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: youtube-app
+  template:
+    metadata:
+      labels:
+        app: youtube-app
+    spec:
+      containers:
+      - name: youtube-app
+        image: samagyasapkota/youtube-app:latest
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: youtube-app-service
+  namespace: default
+spec:
+  selector:
+    app: youtube-app
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 3000
+  type: NodePort

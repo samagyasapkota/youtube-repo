@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  youtube-app:
+    image: samagyasapkota/youtube-app:latest
+    container_name: youtube-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - youtube-network
+
+networks:
+  youtube-network:
+    driver: bridge
