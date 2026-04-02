@@ -1,9 +1,15 @@
-# Build and Deploy a Modern YouTube Clone Application in React JS with Material UI 5
+# YouTube Clone DevOps Project
 
-![YouTube](https://i.ibb.co/4R5RkmW/Thumbnail-5.png)
+## Quick Access
+| Service | URL |
+|---|---|
+| App | http://192.168.56.20:30090 |
+| Jenkins | http://192.168.56.10:8080 |
+| Prometheus | http://192.168.56.30:9090 |
+| Grafana | http://192.168.56.30:3000 |
 
-### Showcase your dev skills with practical experience and land the coding career of your dreams
-💻 JS Mastery Pro - https://jsmastery.pro/youtube
-✅ A special YOUTUBE discount code is automatically applied!
+## Tech Stack
+- React.js, Docker, Jenkins, Kubernetes
+- Prometheus, Grafana, Vagrant, Ansible
 
-📙 Get the Ultimate Frontend & Backend Development Roadmaps, a Complete JavaScript Cheatsheet, Portfolio Tips, and more - https://www.jsmastery.pro/links
+## See [Full Documentation](docs/DOCUMENTATION.md)
